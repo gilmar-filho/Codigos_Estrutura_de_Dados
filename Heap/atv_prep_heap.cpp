@@ -88,9 +88,9 @@ void heap::corrigeDescendo(int i){
     if ((esq < tamanho) and (mHeap[esq].qtdEnergia > mHeap[maior].qtdEnergia)) maior = esq;
     if ((dir < tamanho) and (mHeap[dir].qtdEnergia > mHeap[maior].qtdEnergia)) maior = dir;
 
-    if (maior!=i){ //teste de alteração
+    if (maior!=i){
         swap(mHeap[i], mHeap[maior]);
-        corrigeDescendo(i);
+        corrigeDescendo(maior);
     }
 }
 
@@ -102,7 +102,7 @@ void heap::corrigeSubindo(int i){
     }
 }
 
-int main() { // outro teste
+int main() {
     int capacidade;
     Dado info;
     char comando;
