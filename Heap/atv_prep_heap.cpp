@@ -90,7 +90,7 @@ void heap::corrigeDescendo(int i){
 
     if (maior!=i){ //teste de alteração
         swap(mHeap[i], mHeap[maior]);
-        corrigeDescendo(maior);
+        corrigeDescendo(i);
     }
 }
 
