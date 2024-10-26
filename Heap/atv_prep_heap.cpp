@@ -102,7 +102,7 @@ void heap::corrigeSubindo(int i){
     }
 }
 
-int main() {
+int main() { // outro teste
     int capacidade;
     Dado info;
     char comando;
