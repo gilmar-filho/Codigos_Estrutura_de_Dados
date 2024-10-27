@@ -9,7 +9,7 @@ struct Dado{
 };
 
 void imprimirDado(const Dado& dado){
-    cout << "Nome: " << dado.nome << "Tipo: " << dado.tipo << "Valor: " << dado.valor << endl;
+    cout << "Nome: " << dado.nome << " Tipo: " << dado.tipo << " Valor: " << dado.valor << endl;
 }
 
 class noh {
@@ -46,14 +46,17 @@ void pilha::empilha(const Dado& dado){
 }
 
 Dado pilha::desempilha(){
-    if (this->vazia()) throw runtime_error("Erro: pilha vazia!");
-
-    noh* aux = mTopo;
-    Dado auxDado = aux->mDados;
-    mTopo = aux->mAnterior;
-    aux->mAnterior = NULL;
-    delete[] aux;
-    return auxDado;
+    if (this->vazia()){
+        cout << "Erro: pilha vazia!" << endl;
+        return Dado{"", ' ', -1};
+    } else {
+        noh* aux = mTopo;
+        Dado auxDado = aux->mDados;
+        mTopo = aux->mAnterior;
+        aux->mAnterior = NULL;
+        delete aux;
+        return auxDado;
+    }
 }
 
 void pilha::limparPilha(){
@@ -63,15 +66,17 @@ void pilha::limparPilha(){
 }
 
 void pilha::getTopo(){
-    if (this->vazia()) throw runtime_error("Erro: pilha vazia!");
-
-    imprimirDado(mTopo->mDados);
+    if (this->vazia()){
+        cout << "Erro: pilha vazia!" << endl;
+    } else {
+        imprimirDado(mTopo->mDados);
+    }
 }
 
 int main() {
     pilha teste;
     char comand;
-    Dado info;
+    Dado info, aux;
 
     do {
         cin >> comand;
@@ -83,7 +88,10 @@ int main() {
                 break;
             }
             case 'r':{
-                imprimirDado(teste.desempilha());
+                aux = teste.desempilha();
+                if (aux.valor != -1){
+                    imprimirDado(aux);
+                }
 
                 break;
             }
