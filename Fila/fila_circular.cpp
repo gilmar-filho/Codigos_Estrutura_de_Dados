@@ -47,7 +47,6 @@ int filaCircular::desenfileira(){
         if (mTamanho > 0){
             mInicio++;
             mInicio = mInicio % mCapacidade;
-            //cout << "Inicio: " << mInicio << endl;
         } else {
             mInicio = -1;
             mFim = -1;
