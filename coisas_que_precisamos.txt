@@ -1,0 +1,3 @@
+- saber como salvar em arq binário cada bloco (ok)
+- saber como montar a arvore b+ para manipular os dados
+- saber como 
